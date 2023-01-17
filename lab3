@@ -1,0 +1,32 @@
+
+Zad 1 
+
+import base64
+
+def code(text):
+    return base64.b64encode(text.encode())
+
+def uncode(text):
+    return base64.b64decode(text).decode()
+
+print(code("laborki"))
+print(uncode("bGFib3JraQ=="))
+
+Zad 2 
+
+import random
+import string
+
+def make_pass():
+    paswd = ""
+    characters = string.ascii_letters + string.digits + string.punctuation
+    paswd = random.sample(characters, 8)
+    paswd.extend(random.sample(string.ascii_lowercase, 2))
+    paswd.extend(random.sample(string.ascii_uppercase, 2))
+    paswd.extend(random.sample(string.digits, 2))
+    paswd.extend(random.sample(string.punctuation, 2))
+    random.shuffle(paswd)
+    return "".join(paswd)
+
+print(make_pass())
+
